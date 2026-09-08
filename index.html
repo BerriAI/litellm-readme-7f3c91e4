@@ -909,48 +909,57 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;body&gt;
 &lt;div id=&quot;litellm-org-chart-v2&quot; class=&quot;org-wrap&quot;&gt;
   &lt;style&gt;
-    #litellm-org-chart-v2 { color: var(--foreground); font-family: inherit; }
-    #litellm-org-chart-v2 * { box-sizing: border-box; }
-    #litellm-org-chart-v2 .org-header { display:flex; align-items:flex-end; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:18px; }
-    #litellm-org-chart-v2 h1 { margin:0; }
-    #litellm-org-chart-v2 .subtitle { color:var(--muted-foreground); margin:4px 0 0; }
-    #litellm-org-chart-v2 .legend { display:flex; gap:14px; flex-wrap:wrap; color:var(--muted-foreground); }
-    #litellm-org-chart-v2 .legend span { white-space:nowrap; }
-    #litellm-org-chart-v2 .leadership { display:flex; justify-content:center; gap:14px; position:relative; padding-bottom:34px; }
-    #litellm-org-chart-v2 .leadership::after { content:&quot;&quot;; position:absolute; bottom:0; left:8%; right:8%; height:1px; background:var(--border); }
-    #litellm-org-chart-v2 .leader { min-width:210px; padding:14px 18px; text-align:center; background:color-mix(in srgb, var(--viz-series-1) 16%, transparent); border-radius:14px; }
-    #litellm-org-chart-v2 .leader.cto { background:color-mix(in srgb, var(--viz-series-2) 16%, transparent); }
-    #litellm-org-chart-v2 .name { font-weight:500; }
-    #litellm-org-chart-v2 .role { color:var(--muted-foreground); margin-top:2px; }
-    #litellm-org-chart-v2 .departments { display:grid; grid-template-columns:repeat(5, minmax(0, 1fr)); gap:14px; padding-top:20px; }
-    #litellm-org-chart-v2 .dept { min-width:0; }
-    #litellm-org-chart-v2 .dept-head { padding:10px 12px; border-radius:12px; margin-bottom:8px; text-align:center; font-weight:500; }
-    #litellm-org-chart-v2 .d1 .dept-head { background:color-mix(in srgb, var(--viz-series-1) 20%, transparent); }
-    #litellm-org-chart-v2 .d2 .dept-head { background:color-mix(in srgb, var(--viz-series-2) 20%, transparent); }
-    #litellm-org-chart-v2 .d3 .dept-head { background:color-mix(in srgb, var(--viz-series-3) 20%, transparent); }
-    #litellm-org-chart-v2 .d4 .dept-head { background:color-mix(in srgb, var(--viz-series-4) 20%, transparent); }
-    #litellm-org-chart-v2 .d5 .dept-head { background:color-mix(in srgb, var(--viz-series-5) 20%, transparent); }
-    #litellm-org-chart-v2 .person { width:100%; text-align:left; padding:10px 11px; margin:0 0 7px; border:0; border-radius:10px; color:var(--foreground); cursor:pointer; font:inherit; transition:transform .15s ease, background .15s ease; }
-    #litellm-org-chart-v2 .person:hover { transform:translateY(-1px); }
-    #litellm-org-chart-v2 .person:focus-visible { outline:2px solid var(--ring); outline-offset:2px; }
-    #litellm-org-chart-v2 .d1 .person { background:color-mix(in srgb, var(--viz-series-1) 9%, transparent); }
-    #litellm-org-chart-v2 .d2 .person { background:color-mix(in srgb, var(--viz-series-2) 9%, transparent); }
-    #litellm-org-chart-v2 .d3 .person { background:color-mix(in srgb, var(--viz-series-3) 9%, transparent); }
-    #litellm-org-chart-v2 .d4 .person { background:color-mix(in srgb, var(--viz-series-4) 9%, transparent); }
-    #litellm-org-chart-v2 .d5 .person { background:color-mix(in srgb, var(--viz-series-5) 9%, transparent); }
-    #litellm-org-chart-v2 .person .role { font-size:.9em; }
-    #litellm-org-chart-v2 .status { float:right; color:var(--muted-foreground); }
+    #litellm-org-chart-v2 { color:var(--foreground); font-family:inherit; max-width:1440px; margin:0 auto; padding:26px; }
+    #litellm-org-chart-v2 * { box-sizing:border-box; }
+    #litellm-org-chart-v2 .org-header { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:28px; }
+    #litellm-org-chart-v2 h1 { margin:0; letter-spacing:-.035em; }
+    #litellm-org-chart-v2 .subtitle { color:var(--muted-foreground); margin:5px 0 0; }
+    #litellm-org-chart-v2 .legend { display:flex; gap:8px; flex-wrap:wrap; }
+    #litellm-org-chart-v2 .legend span { white-space:nowrap; color:var(--muted-foreground); background:color-mix(in srgb,var(--foreground) 5%,transparent); border:1px solid var(--border); border-radius:999px; padding:5px 10px; }
+    #litellm-org-chart-v2 .leadership { display:flex; justify-content:center; gap:18px; position:relative; padding:8px 20px 48px; }
+    #litellm-org-chart-v2 .leadership::before { content:&quot;&quot;; position:absolute; z-index:0; bottom:19px; left:50%; width:min(72%,760px); height:42px; transform:translateX(-50%); border:1.5px solid color-mix(in srgb,var(--foreground) 14%,transparent); border-top:0; border-radius:0 0 30px 30px; }
+    #litellm-org-chart-v2 .leader { position:relative; z-index:1; min-width:250px; padding:17px 22px; text-align:center; border:1px solid color-mix(in srgb,var(--viz-series-1) 28%,var(--border)); background:color-mix(in srgb,var(--viz-series-1) 10%,var(--background)); border-radius:20px; box-shadow:0 10px 28px rgb(0 0 0 / 5%); }
+    #litellm-org-chart-v2 .leader.cto { border-color:color-mix(in srgb,var(--viz-series-2) 28%,var(--border)); background:color-mix(in srgb,var(--viz-series-2) 10%,var(--background)); }
+    #litellm-org-chart-v2 .name { display:block; padding-right:24px; font-weight:600; letter-spacing:-.01em; }
+    #litellm-org-chart-v2 .leader .name { padding-right:0; font-size:1.05em; }
+    #litellm-org-chart-v2 .role { color:var(--muted-foreground); margin-top:3px; line-height:1.35; }
+    #litellm-org-chart-v2 .departments { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:start; padding-top:8px; }
+    #litellm-org-chart-v2 .dept { --dept:var(--viz-series-1); min-width:0; padding:10px; border:1px solid color-mix(in srgb,var(--dept) 18%,var(--border)); border-radius:24px; background:color-mix(in srgb,var(--dept) 3.5%,var(--background)); box-shadow:0 8px 30px rgb(0 0 0 / 3%); }
+    #litellm-org-chart-v2 .d1 { --dept:var(--viz-series-1); grid-column:span 2; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    #litellm-org-chart-v2 .d2 { --dept:var(--viz-series-2); }
+    #litellm-org-chart-v2 .d3 { --dept:var(--viz-series-3); }
+    #litellm-org-chart-v2 .d4 { --dept:var(--viz-series-4); }
+    #litellm-org-chart-v2 .d5 { --dept:var(--viz-series-5); }
+    #litellm-org-chart-v2 .dept-head { grid-column:1/-1; padding:12px 14px; margin-bottom:2px; border-radius:16px; color:color-mix(in srgb,var(--dept) 70%,var(--foreground)); background:color-mix(in srgb,var(--dept) 12%,transparent); font-weight:600; letter-spacing:-.01em; }
+    #litellm-org-chart-v2 .person { position:relative; width:100%; min-height:60px; text-align:left; padding:12px 13px; margin:0 0 8px; border:1px solid color-mix(in srgb,var(--dept) 15%,var(--border)); border-radius:16px; color:var(--foreground); background:color-mix(in srgb,var(--dept) 5%,var(--background)); box-shadow:0 1px 2px rgb(0 0 0 / 3%); cursor:pointer; font:inherit; transition:transform 240ms cubic-bezier(.2,.8,.2,1),box-shadow 240ms cubic-bezier(.2,.8,.2,1),border-color 240ms ease,background-color 240ms ease; }
+    #litellm-org-chart-v2 .person:last-child { margin-bottom:0; }
+    #litellm-org-chart-v2 .person:hover { transform:translateY(-2px); border-color:color-mix(in srgb,var(--dept) 40%,var(--border)); background:color-mix(in srgb,var(--dept) 8%,var(--background)); box-shadow:0 10px 24px rgb(0 0 0 / 7%); }
+    #litellm-org-chart-v2 .person.is-selected { border-color:color-mix(in srgb,var(--dept) 62%,var(--border)); background:color-mix(in srgb,var(--dept) 12%,var(--background)); box-shadow:0 0 0 3px color-mix(in srgb,var(--dept) 13%,transparent),0 10px 24px rgb(0 0 0 / 6%); }
+    #litellm-org-chart-v2 .person:focus-visible { outline:2px solid var(--ring); outline-offset:3px; }
+    #litellm-org-chart-v2 .person .role { padding-right:16px; font-size:.88em; }
+    #litellm-org-chart-v2 .status { position:absolute; top:13px; right:13px; float:none; color:var(--muted-foreground); font-size:.78em; line-height:1; }
     #litellm-org-chart-v2 .status.warn { color:var(--orange); }
-    #litellm-org-chart-v2 .detail { margin-top:14px; padding:12px 14px; background:var(--muted); color:var(--foreground); border-radius:12px; min-height:48px; }
-    #litellm-org-chart-v2 .detail strong { font-weight:500; }
+    #litellm-org-chart-v2 .pod-tag { display:inline-flex; align-items:center; margin-top:9px; padding:3px 8px; border-radius:999px; color:color-mix(in srgb,var(--viz-series-6) 76%,var(--foreground)); background:color-mix(in srgb,var(--viz-series-6) 11%,transparent); border:1px solid color-mix(in srgb,var(--viz-series-6) 22%,transparent); font-size:.76em; font-weight:600; }
+    #litellm-org-chart-v2 .pod-layer { --dept:var(--viz-series-6); position:relative; margin-top:18px; padding:10px; border:1px solid color-mix(in srgb,var(--viz-series-6) 20%,var(--border)); border-radius:24px; background:color-mix(in srgb,var(--viz-series-6) 4%,var(--background)); }
+    #litellm-org-chart-v2 .pod-node { max-width:680px; min-height:0; margin:0 auto; padding:16px 18px; text-align:center; border-radius:18px; }
+    #litellm-org-chart-v2 .pod-node .name { display:inline; padding-right:0; }
+    #litellm-org-chart-v2 .pod-node .status { position:static; margin-left:7px; }
+    #litellm-org-chart-v2 .pod-kicker { margin-bottom:5px; color:var(--muted-foreground); font-size:.72em; font-weight:650; letter-spacing:.11em; text-transform:uppercase; }
+    #litellm-org-chart-v2 .pod-members { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:11px; }
+    #litellm-org-chart-v2 .member-node { padding:5px 10px; border:1px solid color-mix(in srgb,var(--viz-series-6) 20%,var(--border)); border-radius:999px; background:var(--background); color:var(--foreground); font-size:.8em; }
+    #litellm-org-chart-v2 .member-link { width:26px; height:1.5px; border-radius:999px; background:color-mix(in srgb,var(--viz-series-6) 42%,var(--border)); }
+    #litellm-org-chart-v2 .detail { margin-top:18px; min-height:64px; padding:15px 17px; border:1px solid var(--border); border-radius:18px; background:color-mix(in srgb,var(--foreground) 4%,var(--background)); color:var(--foreground); line-height:1.45; }
+    #litellm-org-chart-v2 .detail.is-updating { animation:detail-in 260ms cubic-bezier(.2,.8,.2,1); }
+    #litellm-org-chart-v2 .detail strong { font-weight:600; }
     #litellm-org-chart-v2 .source { color:var(--muted-foreground); }
-    @media (max-width:900px) { #litellm-org-chart-v2 .departments { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:520px) { #litellm-org-chart-v2 .departments { grid-template-columns:1fr; } #litellm-org-chart-v2 .leadership { flex-direction:column; align-items:stretch; } #litellm-org-chart-v2 .leader { min-width:0; } }
-    @media (prefers-reduced-motion:reduce) { #litellm-org-chart-v2 .person { transition:none; } }
+    @keyframes detail-in { from { opacity:.35; transform:translateY(3px); } to { opacity:1; transform:none; } }
+    @media (max-width:1050px) { #litellm-org-chart-v2 .departments { grid-template-columns:repeat(2,minmax(0,1fr)); } #litellm-org-chart-v2 .d1 { grid-column:span 2; } }
+    @media (max-width:680px) { #litellm-org-chart-v2 { padding:16px; } #litellm-org-chart-v2 .org-header { align-items:flex-start; margin-bottom:20px; } #litellm-org-chart-v2 .leadership { flex-direction:column; align-items:stretch; padding:0 0 24px; } #litellm-org-chart-v2 .leadership::before { display:none; } #litellm-org-chart-v2 .leader { min-width:0; } #litellm-org-chart-v2 .departments { grid-template-columns:1fr; gap:14px; } #litellm-org-chart-v2 .d1 { grid-column:span 1; grid-template-columns:1fr; } #litellm-org-chart-v2 .member-link { width:12px; } }
+    @media (prefers-reduced-motion:reduce) { #litellm-org-chart-v2 .person { transition:none; } #litellm-org-chart-v2 .detail.is-updating { animation:none; } }
   &lt;/style&gt;
 
   &lt;div class=&quot;org-header&quot;&gt;
-    &lt;div&gt;&lt;h1&gt;Litellm_readme&lt;/h1&gt;&lt;p class=&quot;subtitle&quot;&gt;26 active company Slack accounts (+1 incoming) · September 7, 2026&lt;/p&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;h1&gt;Litellm_readme&lt;/h1&gt;&lt;p class=&quot;subtitle&quot;&gt;27 active company Slack accounts · September 8, 2026&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;legend text-small&quot; aria-label=&quot;Confidence legend&quot;&gt;&lt;span&gt;● Confirmed title&lt;/span&gt;&lt;span&gt;◐ Strong inference&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 
@@ -960,12 +969,14 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;/section&gt;
 
   &lt;div class=&quot;departments&quot;&gt;
-    &lt;section class=&quot;dept d1&quot; aria-labelledby=&quot;dept-eng&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-eng&quot;&gt;Product &amp;amp; Engineering · 9&lt;/div&gt;
+    &lt;section class=&quot;dept d1&quot; aria-labelledby=&quot;dept-eng&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-eng&quot;&gt;Product &amp;amp; Engineering · 11&lt;/div&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;LinkedIn identifies Ryan at LiteLLM as a Fullstack Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Ryan Crabbe&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Fullstack Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Founding Fullstack Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Yuneng “David” Jiang&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Founding Fullstack Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Software Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Yujong Lee&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Software Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile says “Backed Engineer,” interpreted as Backend Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Yucheng He&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Backend Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: AI Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Mateo Wang&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;AI Engineer&lt;/div&gt;&lt;/button&gt;
+      &lt;button class=&quot;person&quot; data-evidence=&quot;Shivam asked in #eng on Sept 3 whether Joshua would own MCP starting the following week. Jesus announced in #general on Sept 8 that Joshua had arrived. Krrish’s Aug 19 notes identify Joshua as a UPenn CS graduate who built Granica’s LiteLLM competitor and previously worked at Oracle. His joshua@berri.ai Slack account is now live. No formal profile title or announcement exists, so the title is inferred from MCP ownership.&quot;&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Joshua Valluru&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Engineer · MCP&lt;/div&gt;&lt;/button&gt;
+      &lt;button id=&quot;p-kerry&quot; class=&quot;person&quot; data-evidence=&quot;Announced by Krrish in Slack (Aug 27, 2026): ex-YC founder, 3 years at AWS backend infra, joining backend engineering to improve LiteLLM stability. Ishaan said Kerry would join on Monday to help with pricing; Krrish placed him in a mid-market pod with Luke Page. His kerry@berri.ai Slack account is live, and he joined #eng-hiring on Sept 7. The backend-versus-pricing title remains inferred.&quot;&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Kerry Lu&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Backend Engineer · pricing&lt;/div&gt;&lt;span class=&quot;pod-tag&quot;&gt;Mid-Market pod&lt;/span&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: AI Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Tin Chi Lo&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;AI Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Krrish cited Moe as the model profile for LiteLLM’s Product Engineer role.&quot;&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Moe Khalil&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Product Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Public profile describes him as a Senior Backend Engineer; Slack assigns him Terraform ownership.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Yassin Kortam&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Senior Backend Engineer&lt;/div&gt;&lt;/button&gt;
@@ -975,7 +986,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;section class=&quot;dept d2&quot; aria-labelledby=&quot;dept-cx&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-cx&quot;&gt;Customer Engineering &amp;amp; Support · 5&lt;/div&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Customer Engineer / Forward Deployed Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Shivam Rawat&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Customer / Forward Deployed Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Forward Deployed Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Jesus Velarde&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Forward Deployed Engineer&lt;/div&gt;&lt;/button&gt;
-      &lt;button class=&quot;person&quot; data-evidence=&quot;Announced by Krrish in Slack (Aug 24, 2026) as a Forward Deployed Engineer focused on churn-risk customers; start date Sept 8, 2026. Not yet active in Slack.&quot;&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Mrinal Chanshetty&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Forward Deployed Engineer · starts Sept 8&lt;/div&gt;&lt;/button&gt;
+      &lt;button class=&quot;person&quot; data-evidence=&quot;Announced by Krrish in Slack (Aug 24, 2026) as a Forward Deployed Engineer focused on churn-risk customers, with a Sept 8 start date. His mrinal@berri.ai Slack account is now live. He has not posted a message or set a Slack profile title, so the role remains a strong inference.&quot;&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Mrinal Chanshetty&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Forward Deployed Engineer&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: LiteLLM Support Operations.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Cyrine Javier&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Support Operations&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Support Engineer.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Gabriele Michelli&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Support Engineer&lt;/div&gt;&lt;/button&gt;
     &lt;/section&gt;
@@ -983,7 +994,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;section class=&quot;dept d3&quot; aria-labelledby=&quot;dept-gtm&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-gtm&quot;&gt;Sales &amp;amp; GTM · 5&lt;/div&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Role confirmed by Eleanor: Founding Account Executive; LinkedIn confirms Sam is on the LiteLLM team.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Sam Moser&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Founding Account Executive&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Enterprise Account Executive.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Mik Cepulis&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Enterprise Account Executive&lt;/div&gt;&lt;/button&gt;
-      &lt;button class=&quot;person&quot; data-evidence=&quot;LiteLLM’s LinkedIn team announcement identifies Luke as an Account Executive.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Luke Page&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Account Executive&lt;/div&gt;&lt;/button&gt;
+      &lt;button id=&quot;p-luke&quot; class=&quot;person&quot; data-evidence=&quot;LiteLLM’s LinkedIn team announcement identifies Luke as an Account Executive.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Luke Page&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Account Executive&lt;/div&gt;&lt;span class=&quot;pod-tag&quot;&gt;Mid-Market pod&lt;/span&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Role confirmed by Eleanor: Sales Development Representative.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Varoon Raghav&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Sales Development Representative&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Role confirmed by Eleanor: GTM Engineer / Founding Eleanor.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Eleanor Sigel&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;GTM Engineer / Founding Eleanor&lt;/div&gt;&lt;/button&gt;
     &lt;/section&gt;
@@ -992,13 +1003,24 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack onboarding announcement identifies Misbah Syed as a Developer Relations Engineer responsible for social presence, release emails, and driving installs.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Misbah Syed&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Developer Relations Engineer&lt;/div&gt;&lt;/button&gt;
     &lt;/section&gt;
 
-    &lt;section class=&quot;dept d5&quot; aria-labelledby=&quot;dept-ops&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-ops&quot;&gt;Operations, People &amp;amp; Security · 5&lt;/div&gt;
-      &lt;button class=&quot;person&quot; data-evidence=&quot;Role confirmed by Eleanor: Chief of Staff.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Kayla Mathisen&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Chief of Staff&lt;/div&gt;&lt;/button&gt;
+    &lt;section class=&quot;dept d5&quot; aria-labelledby=&quot;dept-ops&quot;&gt;&lt;div class=&quot;dept-head&quot; id=&quot;dept-ops&quot;&gt;Operations, People &amp;amp; Security · 4&lt;/div&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile and company announcement: Head of People Operations.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Evelyn Kwong&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Head of People Operations&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Department confirmed by Eleanor: Operations. Owns interview scheduling, candidate logistics, recruiter coordination, and start dates.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Joanna Samuels&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Recruiting Operations&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Role confirmed by Eleanor: virtual Chief Information Security Officer (vCISO).&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Alexis Von Bonifacio&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;vCISO&lt;/div&gt;&lt;/button&gt;
       &lt;button class=&quot;person&quot; data-evidence=&quot;Slack profile: Director of Security.&quot;&gt;&lt;span class=&quot;status&quot;&gt;●&lt;/span&gt;&lt;span class=&quot;name&quot;&gt;Oliver Jensen&lt;/span&gt;&lt;div class=&quot;role&quot;&gt;Director of Security&lt;/div&gt;&lt;/button&gt;
     &lt;/section&gt;
+  &lt;/div&gt;
+
+
+
+
+  &lt;div class=&quot;pod-layer&quot; id=&quot;pod-layer&quot;&gt;
+    &lt;button class=&quot;pod-node person&quot; id=&quot;pod-midmarket&quot; data-evidence=&quot;Krrish in Slack (Sept 4, 2026), answering Eleanor on org structure: &#x27;there is a pod focused on mid-market, across sales + eng - this is kerry + luke&#x27;. The pod connects Kerry Lu (Product &amp; Engineering) and Luke Page (Sales &amp; GTM). No pod lead or mission beyond that line has been stated.&quot;&gt;
+      &lt;div class=&quot;pod-kicker&quot;&gt;Cross-functional pod&lt;/div&gt;
+      &lt;span class=&quot;name&quot;&gt;Mid-Market&lt;/span&gt;&lt;span class=&quot;status&quot;&gt;◐&lt;/span&gt;
+      &lt;div class=&quot;role&quot;&gt;Sales + engineering&lt;/div&gt;
+      &lt;div class=&quot;pod-members&quot; aria-label=&quot;Pod members&quot;&gt;&lt;span class=&quot;member-node&quot;&gt;Kerry Lu · Engineering&lt;/span&gt;&lt;span class=&quot;member-link&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;member-node&quot;&gt;Luke Page · Sales&lt;/span&gt;&lt;/div&gt;
+    &lt;/button&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;detail&quot; id=&quot;org-detail&quot; aria-live=&quot;polite&quot;&gt;&lt;strong&gt;Select a person&lt;/strong&gt; to see why their role was assigned.&lt;/div&gt;
@@ -1007,10 +1029,20 @@ html&gt;body{padding:0}&lt;/style&gt;
       const root = document.getElementById(&#x27;litellm-org-chart-v2&#x27;);
       const detail = root.querySelector(&#x27;#org-detail&#x27;);
       root.querySelectorAll(&#x27;.person&#x27;).forEach((button) =&gt; {
+        button.setAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
         button.addEventListener(&#x27;click&#x27;, () =&gt; {
           const name = button.querySelector(&#x27;.name&#x27;).textContent;
           const role = button.querySelector(&#x27;.role&#x27;).textContent;
+          root.querySelectorAll(&#x27;.person&#x27;).forEach((item) =&gt; {
+            item.classList.remove(&#x27;is-selected&#x27;);
+            item.setAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
+          });
+          button.classList.add(&#x27;is-selected&#x27;);
+          button.setAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
           detail.innerHTML = &#x27;&lt;strong&gt;&#x27; + name + &#x27; — &#x27; + role + &#x27;&lt;/strong&gt;&lt;br&gt;&lt;span class=&quot;source&quot;&gt;&#x27; + button.dataset.evidence + &#x27;&lt;/span&gt;&#x27;;
+          detail.classList.remove(&#x27;is-updating&#x27;);
+          void detail.offsetWidth;
+          detail.classList.add(&#x27;is-updating&#x27;);
         });
       });
     })();
